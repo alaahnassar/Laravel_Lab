@@ -18,30 +18,27 @@
 
     @include('navbar')
     <div class="container">
-        <form action="{{ route('create') }}" method="get" class="my-5">
-            <button class=" btn btn-primary" type="submit">Create post</button>
-        </form>
         <table class="table table-striped text-center w-75 mx-auto my-5">
             <thead>
                 <tr>
                     <td class="fw-semibold fs-5">ID</td>
-                    <td class="fw-semibold fs-5">Title</td>
-                    <td class="fw-semibold fs-5">Created by</td>
-                    <td class="fw-semibold fs-5">Created at</td>
+                    <td class="fw-semibold fs-5">Name</td>
+                    <td class="fw-semibold fs-5">Email</td>
                     <td class="fw-semibold fs-5">Action</td>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($users as $user)
                     <tr>
-                        <td>{{ $post->id }}</td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->user_id }}</td>
-                        <td>{{ $post->created_at }}</td>
-                        <td>
-                            <button class="btn btn-primary"><a class="text-white text-decoration-none"
-                                    href="{{ route('view', ['id' => $post->id]) }}">View</a></button>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name}}</td>
+                        <td>{{ $user->email }}</td>
 
+                         <td>
+                            <button class="btn btn-primary"><a class="text-white text-decoration-none"
+                                    href="{{ route('user.view', ['id' => $user->id]) }}">View</a></button>
+                         </td>
+{{--
                             <form action="{{ route('edit', $post->id) }}" method="" class="d-inline">
                                 @csrf()
                                 <button class=" btn btn-success" type="submit">Edit</button>
@@ -52,7 +49,7 @@
                                 <button class=" btn btn-danger" type="submit">Delete</button>
                             </form>
 
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>

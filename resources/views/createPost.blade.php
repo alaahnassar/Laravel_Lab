@@ -24,7 +24,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">posted by</label>
-        <input type="text" class="form-control" name="posted_by">
+        <input type="text" class="form-control" name="user_id">
     </div>
     <button class=" btn btn-primary" type="submit">Create</button>
 

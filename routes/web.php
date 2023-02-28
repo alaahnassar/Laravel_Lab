@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\postController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+// post
 Route::get('/',[postController::class, 'getPosts'])->name('get');
 Route::get('/view/{id}',[postController::class, 'viewPost'])->name('view');
 Route::get('/edit/{id}',[postController::class, 'editpost'])->name('edit');
@@ -24,3 +26,7 @@ Route::put('/update/{id}',[postController::class,'update'])->name('update');
 Route::delete('/delete/{id}',[postController::class, 'deletepost'])->name('delete');
 Route::get('create',[postController::class,'createPost'])->name('create');
 Route::post('create',[postController::class,'storePost']);
+
+// user
+Route::get('/user/index',[userController::class, 'index'])->name('user.index');
+Route::get('/user/viewUser/{id}',[userController::class, 'show'])->name('user.view');
