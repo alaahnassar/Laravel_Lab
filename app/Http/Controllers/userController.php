@@ -11,7 +11,7 @@ class userController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    { $users = User::get();
+    { $users = User::paginate(7);
         return view('user.index', ['users' => $users]);
 
     }

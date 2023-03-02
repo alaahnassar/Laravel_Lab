@@ -21,7 +21,7 @@
       <div class="card col-6 my-5 mx-auto">
         <h5 class="card-header">Creator info</h5>
         <div class="card-body">
-          <p class="card-title"><span class="fw-semibold">Name:</span>{{$post->user_id}}</p>
+          <p class="card-title"><span class="fw-semibold">Name:</span>{{$post->user->name}}</p>
           <p class="card-text"><span class="fw-semibold">Created At:</span>{{$post->created_at}}</p>
         </div>
       </div>

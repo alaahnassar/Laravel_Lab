@@ -13,6 +13,9 @@
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="{{route('user.index')}}">All users</a>
           </li>
+          <li class="nav-item float-end">
+            <a class="nav-link " aria-current="page" href="#">{{ Auth::user()->name }}</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      @foreach ($user->user as $user )
+      @foreach ($user->post as $user )
 <div class="card col-6 my-5 mx-auto">
         <h5 class="card-header">post info</h5>
         <div class="card-body">

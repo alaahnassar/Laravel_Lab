@@ -31,7 +31,14 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">posted by</label>
-        <input type="text" class="form-control" name="user_id" value="{{$post->user_id}}">
+        <select name="user_id" id="">
+            @foreach ($users as $user)
+            <option value="{{$user->id}}">
+            {{$user->name}}
+            </option>
+            @endforeach
+
+        </select>
     </div>
     <button class=" btn btn-primary" type="submit">Update</button>
 

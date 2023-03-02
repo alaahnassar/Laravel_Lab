@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 // post
-Route::get('/',[postController::class, 'getPosts'])->name('get');
+Route::middleware('auth')->group(function(){
+
+    Route::get('/',[postController::class, 'getPosts'])->name('get');
 Route::get('/view/{id}',[postController::class, 'viewPost'])->name('view');
 Route::get('/edit/{id}',[postController::class, 'editpost'])->name('edit');
 Route::put('/update/{id}',[postController::class,'update'])->name('update');
@@ -30,3 +32,15 @@ Route::post('create',[postController::class,'storePost']);
 // user
 Route::get('/user/index',[userController::class, 'index'])->name('user.index');
 Route::get('/user/viewUser/{id}',[userController::class, 'show'])->name('user.view');
+});
+
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
